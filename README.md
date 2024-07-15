@@ -40,7 +40,7 @@ python manage.py migrate
 
 ### 5. Create super user
 ```bash
-python manage.py createsuperuser // to se the database localhost/admin
+python manage.py createsuperuser
 ```
 
 ### 6. Run the server
