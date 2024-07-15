@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ artist.name }}'s Albums</title>
+    <!-- Bootstrap CSS -->
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'music/styles.css' %}">
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script src="{% static 'music/scripts.js' %}"></script>
+</head>
+<body class="bg-light">
+    <div class="container">
+        <h1 class="my-4 text-center">{{ artist.name }}'s Albums</h1>
+        <div class="row justify-content-center">
+            <div class="col-md-8">
+                <ul class="list-group">
+                    {% for album in artist.albums.all %}
+                        <li class="list-group-item">
+                            <a href="#" onclick="loadSongs({{ album.id }}); return false;">{{ album.title }}</a>
+                        </li>
+                    {% endfor %}
+                </ul>
+                <div id="songs" class="my-4"></div>
+                <a href="{% url 'artist_list' %}" class="btn btn-secondary mt-4">Back to Artists</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
