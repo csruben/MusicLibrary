@@ -33,7 +33,6 @@ pip install -r requirements.txt
 ```
 
 ### 4. Apply Migrations
-Ensure the database is set up properly by applying migrations:
 ```bash
 python manage.py migrate
 ```
